@@ -1,0 +1,91 @@
+-- Configuration --
+git config --global user.name "Jan Nemec"
+git config --global user.email "jan.nemec@live.com"
+git config --global --list
+
+-- HTTP[S] PROXY --
+git config --global http.proxy http://username:password@proxy:port
+git config --global --unset http.proxy
+
+-- Clone the repo --
+git clone https://github.com/jan-nemec/git-demo.git
+git clone username@host:/path/to/repository
+
+-- Create Git Repository
+git init
+
+-- History/Log --
+git log
+git log --all
+git log --oneline
+git shortlog
+git log --author=bob
+
+-- Branches --
+Have you ever saved different versions of a file? Something like:
+
+story.txt
+story-joe-edit.txt
+story-joe-edit-reviewed.txt
+
+Branches accomplish similar goals in GitHub repositories.
+
+-- To create a new branch --
+git branch feature
+git branch readme-edits
+git checkout feature
+
+git branch
+git diff master readme-edits # view changes (preview) between two branches
+
+git checkout master
+git merge feature
+
+git branch -d readme_-edits # delete branch
+
+-- Push --
+If you have not cloned an existing repository and want to connect your repository to a remote server, you need to add it with
+
+git remote add origin https://github.com/jan-nemec/git-demo.git
+git remote -v # Verify new remote
+
+The branch is not available to others unless you push the branch to your remote repository
+git push -u origin master
+
+-- Pull Request --
+to update your local repository to the newest commit, execute
+
+git pull (git pull origin)
+
+You can propose changes (add it to the Index) using
+git add *
+git add *.txt
+git add -A
+git add filename
+
+git commit -m "Changes that will be pushed to the remote repo"
+git status
+git pull
+git push
+
+-- Merge Pull Request --
+In this final step, it�s time to bring your changes together � merging your readme-edits branch into the master branch.
+
+-- Tagging --
+You can create a new tag named 1.0.0 by executing
+
+git tag 1.0.0 1b2e1d63ff
+
+the 1b2e1d63ff stands for the first 10 characters of the commit id you want to reference with your tag.
+
+-- Undo --
+In case you did something wrong, which for sure never happens ;), you can replace local changes using the command
+
+git checkout -- <filename>
+
+this replaces the changes in your working tree with the last content in HEAD.
+
+If you instead want to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it like this
+
+git fetch origin
+git reset --hard origin/master
