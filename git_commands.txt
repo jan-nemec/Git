@@ -1,4 +1,4 @@
--- Configuration --
+﻿-- Configuration --
 git config --global user.name "Jan Nemec"
 git config --global user.email "jan.nemec@live.com"
 git config --global --list
@@ -89,3 +89,14 @@ If you instead want to drop all your local changes and commits, fetch the latest
 
 git fetch origin
 git reset --hard origin/master
+
+# Apply .gitignore on the existing repository
+git rm -r --cached .
+Add .gitignore
+git add .
+git commit -m ".gitignore is now working"
+
+# Remove last commit from remote git repository
+git reset HEAD^ # remove commit locally
+git push origin +HEAD # force-push the new HEAD commit
+# Use git reset HEAD~1 on Win machines
