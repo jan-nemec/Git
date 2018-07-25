@@ -2,10 +2,16 @@
 git config --global user.name "Jan Nemec"
 git config --global user.email "jan.nemec@live.com"
 git config --global --list
+git config -l --show-origin
 
 -- HTTP[S] PROXY --
+-- now | proxy-zdc.internal.services:8080
+-- prev | http://iwsa-04.ph.koop.cz:8080
 git config --global http.proxy http://username:password@proxy:port
 git config --global --unset http.proxy
+
+-- SSL
+-- https://blogs.msdn.microsoft.com/phkelley/2014/01/20/adding-a-corporate-or-self-signed-certificate-authority-to-git-exes-store/
 
 -- Clone the repo --
 git clone https://github.com/jan-nemec/git-demo.git
